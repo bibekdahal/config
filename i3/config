@@ -21,7 +21,7 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu 'dmenu -i -fn "-8"'
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+Semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -33,7 +33,7 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+Semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -201,6 +201,9 @@ bindsym ctrl+$mod+p exec ~/projects/ScreenEat/screeneat.py
 bindsym ctrl+$mod+o exec ~/projects/ScreenEat/screeneat.py --active
 bindsym ctrl+$mod+i exec ~/projects/ScreenEat/screeneat.py --cropped
 
+# Notes
+bindsym $mod+Shift+n exec ~/projects/notes/node_modules/electron/cli.js ~/projects/notes/.
+
 # Wallpaper
 exec --no-startup-id feh --randomize --bg-scale ~/Pictures/wallpapers/*
 
@@ -208,7 +211,7 @@ exec --no-startup-id feh --randomize --bg-scale ~/Pictures/wallpapers/*
 exec --no-startup-id compton
 
 # Redshift
-exec --no-startup-id redshift -t 5500:1900 -b 1.0:0.8
+# exec --no-startup-id redshift -t 5500:1900 -b 1.0:0.8
 
 # Don't change focus with mouse
 focus_follows_mouse no
@@ -216,6 +219,9 @@ focus_follows_mouse no
 # Move through workspaces by Ctrl+Alt+Arrow
 bindsym Mod1+Control+Left workspace prev
 bindsym Mod1+Control+Right workspace next
+bindsym Mod1+Control+h workspace prev
+bindsym Mod1+Control+l workspace next
+
 
 # Scrolling vertically and horizontally
 exec --no-startup-id xinput set-prop 12 280 1, 1
@@ -225,8 +231,8 @@ bindsym $mod+Shift+Return exec nautilus --new-window
 
 
 # Assign workspaces to applications
-assign [class="(?i)google-chrome"] $tag1
-assign [class="(?i)firefox"] $tag1
-assign [class="(?i)atom"] $tag2
+# assign [class="(?i)google-chrome"] $tag1
+# assign [class="(?i)firefox"] $tag1
+# assign [class="(?i)atom"] $tag2
 # assign [class="(?i)gnome-terminal"] $tag3
-assign [class="(?i)Viber"] $tag4
+# assign [class="(?i)Viber"] $tag4

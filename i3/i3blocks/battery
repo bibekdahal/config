@@ -20,13 +20,13 @@ else
         if [[ $percent -lt 10 ]]; then
             icon=""
             color="#FF0000"
-        elif [[ $percent -lt 25 ]]; then
+        elif [[ $percent -lt 15 ]]; then
             icon=""
             color="#FF7700"
-        elif [[ $percent -lt 50 ]]; then
+        elif [[ $percent -lt 25 ]]; then
             icon=""
             color="#FFDD00"
-        elif [[ $percent -lt 65 ]]; then
+        elif [[ $percent -lt 35 ]]; then
             icon=""
             color="#FFFF77"
         elif [[ $percent -lt 90 ]]; then
