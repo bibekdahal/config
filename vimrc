@@ -1,72 +1,84 @@
+call plug#begin('~/.vim/plugged')
 
-" Indentation
-" Use soft tab of 4 spaces.
-"""""""""""""""""""""""""""""
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'vim-syntastic/syntastic'
 
-set autoindent
+call plug#end()
+
+
+let mapleader=","
+nnoremap <leader>p :CtrlPBuffer<cr>
+
+
+colorscheme apprentice
+syntax on
+set t_ut=
+
+set statusline=%t
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+set statusline+=%=%l:%c
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_scss_checkers=[]
+
+let g:jsx_ext_required = 0
+
+inoremap <C-@> <c-x><c-o>
+
+
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab
+
 filetype plugin indent on
 
-" For makefile and conf files we need tabs instead of spaces
-autocmd FileType make setlocal noexpandtab
-autocmd BufNewFile,BufRead *.conf setlocal noexpandtab
 
-" Syntax highlighting
-"""""""""""""""""""""""
-syntax on
-color wombat256mod
-
-" For django templates
-au BufNewFile,BufRead *.html set filetype=htmldjango    " django
-" For opencl programs
-au BufNewFile,BufRead *.cl setf opencl     " opencl
-
-" Word-wrapping and line numbers
-""""""""""""""""""""""""""""""""""
-set nowrap
 set number
+set nowrap
+set cursorline
+set wildmenu
+set hidden
 
-" Switch buffers using Tab and Shift+Tab
-""""""""""""""""""""""""""""""""""""""""""
+
 map <Tab> :bnext<cr>
 map <S-Tab> :bprevious<cr>
 
-" Highlight search using space
-""""""""""""""""""""""""""""""""""""
+
 set incsearch
-:noremap <Space> :set hlsearch! hlsearch?<CR>
+nnoremap <leader><space> :set hlsearch! hlsearch?<cr>
 
-" ctrlp plugin
-""""""""""""""""""""""""""""""""""""
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-" File explorer
-"""""""""""""""""""""""""""""""""""
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=indent
+nnoremap <space> za
+
+
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 25
 
 
-" Filename in status
-""""""""""""""""""""""""""""""""""
-set ls=2
+nnoremap <c-j> :m .+1<cr>==
+nnoremap <c-k> :m .-2<cr>==
+inoremap <c-j> <Esc>:m .+1<cr>==gi
+inoremap <c-k> <Esc>:m .-2<cr>==gi
+vnoremap <c-j> :m '>+1<cr>gv=gv
+vnoremap <c-k> :m '<-2<cr>gv=gv
 
-" Persistent undo
-""""""""""""""""""""""""""""""""""
-" Don't forget to mkdir ~/.vim/undo
-set undofile
-set undodir=$HOME/.vim/undo
 
-set undolevels=1000
-set undoreload=10000
-
-" Move lines/blocks up/down
-""""""""""""""""""""""""""""""""""
-nnoremap <c-j> :m .+1<CR>==
-nnoremap <c-k> :m .-2<CR>==
-inoremap <c-j> <Esc>:m .+1<CR>==gi
-inoremap <c-k> <Esc>:m .-2<CR>==gi
-vnoremap <c-j> :m '>+1<CR>gv=gv
-vnoremap <c-k> :m '<-2<CR>gv=gv
