@@ -206,6 +206,7 @@ bindsym $mod+Shift+n exec ~/projects/notes/node_modules/electron/cli.js ~/projec
 
 # Wallpaper
 exec --no-startup-id feh --randomize --bg-scale ~/Pictures/wallpapers/*
+bindsym shift+$mod+w exec --no-startup-id feh --randomize --bg-scale ~/Pictures/wallpapers/*
 
 # For transparency
 exec --no-startup-id compton
@@ -228,6 +229,9 @@ exec --no-startup-id xinput set-prop 12 280 1, 1
 
 # Shortcuts for applications
 bindsym $mod+Shift+Return exec nautilus --new-window
+
+# Move workspace to right screen
+bindsym $mod+m move workspace to output right
 
 
 # Assign workspaces to applications

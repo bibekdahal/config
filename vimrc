@@ -8,6 +8,7 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'w0rp/ale'
+Plug 'posva/vim-vue'
 
 
 call plug#end()
@@ -27,12 +28,18 @@ set wildmenu
 set hidden
 set backspace=indent,eol,start
 
-" Color theme apprentice
+" Color theme
 colorscheme apprentice
+" colorscheme flattened_light
 syntax on
 " Disable background color erase
 set t_ut=
 
+
+" CtrlP
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = 'ag %s --files-with-matches -g ""'
+let g:ctrlp_use_caching = 0
 
 " ALE config
 let g:ale_lint_on_enter = 1
@@ -43,7 +50,7 @@ let g:ale_sign_column_always = 1
 let g:ale_linters = {
             \'javascript': ['eslint'],
             \}
-let g:ale_javascript_eslint_use_global = 1
+" let g:ale_javascript_eslint_use_global = 1
 
 " vim-jsx: no .jsx extension required
 let g:jsx_ext_required = 0
@@ -59,6 +66,8 @@ set shiftwidth=4
 set expandtab
 
 filetype plugin indent on
+
+au BufRead,BufEnter /home/bibek/projects/smtm/*.js set tabstop=2 softtabstop=2 shiftwidth=2
 
 
 " Switching buffers
@@ -96,3 +105,7 @@ vnoremap <c-k> :m '<-2<cr>gv=gv
 
 " Sudo save
 cmap w!! w !sudo tee % >/dev/null
+
+
+" Directory for swap files
+set directory=~/.vim/swapfiles//    " Make sure directory exists
