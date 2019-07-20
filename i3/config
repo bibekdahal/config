@@ -2,7 +2,7 @@
 
 set $mod Mod4
 
-font pango:FontAwesome 8.5
+font pango:Inconsolata 11
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -14,8 +14,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+Shift+d exec dmenu_run
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu 'dmenu -i -fn "-8"'
+bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu 'dmenu -i -fn "-8"'
+bindsym $mod+d exec dmenu_run
 
 # change focus
 bindsym $mod+j focus left
@@ -30,10 +30,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+Semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -76,16 +76,20 @@ bindsym $mod+minus scratchpad show
 
 
 # Standard workspaces
-set $tag1 "1: "
-set $tag2 "2: "
-set $tag3 "3: "
-set $tag4 "4: "
+# set $tag1 "1: "
+# set $tag2 "2: "
+# set $tag3 "3: "
+# set $tag4 "4: "
 
 # switch to workspace
-bindsym $mod+1 workspace $tag1
-bindsym $mod+2 workspace $tag2
-bindsym $mod+3 workspace $tag3
-bindsym $mod+4 workspace $tag4
+# bindsym $mod+1 workspace $tag1
+# bindsym $mod+2 workspace $tag2
+# bindsym $mod+3 workspace $tag3
+# bindsym $mod+4 workspace $tag4
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -94,10 +98,14 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $tag1
-bindsym $mod+Shift+2 move container to workspace $tag2
-bindsym $mod+Shift+3 move container to workspace $tag3
-bindsym $mod+Shift+4 move container to workspace $tag4
+# bindsym $mod+Shift+1 move container to workspace $tag1
+# bindsym $mod+Shift+2 move container to workspace $tag2
+# bindsym $mod+Shift+3 move container to workspace $tag3
+# bindsym $mod+Shift+4 move container to workspace $tag4
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -113,7 +121,8 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+Shift+e exec i3-msg exit # "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
-set $resize 
+set $resize "resize"
+# set $resize 
 mode $resize {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -141,7 +150,8 @@ bindsym $mod+r mode $resize
 
 # Power mode
 
-set $power 
+# set $power 
+set $power "power"
 
 mode $power {
     bindsym l exec --no-startup-id ~/.config/i3/power.py lock, mode "default"
@@ -197,9 +207,9 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Screeneat
-bindsym ctrl+$mod+p exec ~/projects/ScreenEat/screeneat.py
-bindsym ctrl+$mod+o exec ~/projects/ScreenEat/screeneat.py --active
-bindsym ctrl+$mod+i exec ~/projects/ScreenEat/screeneat.py --cropped
+bindsym ctrl+$mod+p exec ~/projects/ScreenEat/screen-eat
+bindsym ctrl+$mod+o exec ~/projects/ScreenEat/screen-eat --active
+bindsym ctrl+$mod+i exec ~/projects/ScreenEat/screen-eat --cropped
 
 # Notes
 bindsym $mod+Shift+n exec ~/projects/notes/node_modules/electron/cli.js ~/projects/notes/.
@@ -209,7 +219,7 @@ exec --no-startup-id feh --randomize --bg-scale ~/Pictures/wallpapers/*
 bindsym shift+$mod+w exec --no-startup-id feh --randomize --bg-scale ~/Pictures/wallpapers/*
 
 # For transparency
-exec --no-startup-id compton
+exec --no-startup-id compton --vsync opengl
 
 # Redshift
 # exec --no-startup-id redshift -t 5500:1900 -b 1.0:0.8
@@ -240,3 +250,6 @@ bindsym $mod+m move workspace to output right
 # assign [class="(?i)atom"] $tag2
 # assign [class="(?i)gnome-terminal"] $tag3
 # assign [class="(?i)Viber"] $tag4
+
+bindsym $mod+z exec --no-startup-id xset led named "Scroll Lock"
+bindsym $mod+Shift+z exec --no-startup-id xset -led named "Scroll Lock"

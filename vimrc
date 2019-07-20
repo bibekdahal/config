@@ -8,7 +8,16 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'w0rp/ale'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'posva/vim-vue'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
+Plug 'jremmen/vim-ripgrep'
+Plug 'suan/vim-instant-markdown'
+" Plug 'tnagorra/camelspell'
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
 
 
 call plug#end()
@@ -27,18 +36,26 @@ set cursorline
 set wildmenu
 set hidden
 set backspace=indent,eol,start
+set mouse=a
 
 " Color theme
-colorscheme apprentice
+" colorscheme onehalfdark
+colorscheme onehalflight
+" colorscheme apprentice
 " colorscheme flattened_light
 syntax on
 " Disable background color erase
 set t_ut=
 
+" Indent guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=white   ctermbg=white
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=lightgrey ctermbg=256
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = 'ag %s --files-with-matches -g ""'
+let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 let g:ctrlp_use_caching = 0
 
 " ALE config
@@ -49,8 +66,13 @@ let g:ale_lint_delay = 300 " ms
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
             \'javascript': ['eslint'],
+            \'cpp': ['clang', 'gcc', 'clangcheck'],
             \}
+let g:ale_fixers = { 'scss': ['stylelint'], 'javascript': ['eslint'] }
 " let g:ale_javascript_eslint_use_global = 1
+let g:ale_cpp_clang_options = '-std=c++17 -Wall -I include'
+let g:ale_cpp_gcc_options = '-std=c++17 -Wall -I include'
+let g:ale_cpp_clangcheck_options = '-- -std=c++17 -Wall -I include -x c++'
 
 " vim-jsx: no .jsx extension required
 let g:jsx_ext_required = 0
@@ -67,7 +89,15 @@ set expandtab
 
 filetype plugin indent on
 
-au BufRead,BufEnter /home/bibek/projects/smtm/*.js set tabstop=2 softtabstop=2 shiftwidth=2
+" au FileType cpp setlocal expandtab tabstop=2 shiftwidth=2
+" au BufRead,BufEnter /home/bibek/projects/helix/*.js set tabstop=2 softtabstop=2 shiftwidth=2
+" au BufRead,BufEnter /home/bibek/projects/helix/*.vue set tabstop=2 softtabstop=2 shiftwidth=2
+" au BufRead,BufEnter /home/bibek/projects/zendesk/*.hbs set tabstop=2 softtabstop=2 shiftwidth=2
+" au BufRead,BufEnter /home/bibek/projects/zendesk/*.hbs set tabstop=2 softtabstop=2 shiftwidth=2
+
+
+" Disable auto indent
+:nnoremap <F8> :setl noai nocin nosi inde=<CR>
 
 
 " Switching buffers
@@ -108,4 +138,4 @@ cmap w!! w !sudo tee % >/dev/null
 
 
 " Directory for swap files
-set directory=~/.vim/swapfiles//    " Make sure directory exists
+set directory=~/.vim/swapfiles/    " Make sure directory exists

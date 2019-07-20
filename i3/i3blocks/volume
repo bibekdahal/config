@@ -5,15 +5,16 @@ volume=$(expr "$string" : '.*\[\(.*\)%\].*')
 
 if [[ $string == *"[on]" ]]; then
     if [[ $volume -lt 20 ]]; then
-        echo "  $volume%"
+        echo "Vol: $volume%"
     elif [[ $volume -lt 50 ]]; then
-        echo "  $volume%"
+        echo "Vol: $volume%"
     else
-        echo "  $volume%"
+        echo "Vol: $volume%"
     fi
         
 else
-    echo ""
+    echo "Vol: Mute"
+    # echo ""
     echo "Mute"
     echo "#777777"
 fi
