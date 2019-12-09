@@ -169,17 +169,21 @@ bindsym $mod+p mode $power
 bindsym $mod+Escape exec --no-startup-id "sleep 1; xset dpms force off"
 
 
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        # position top
-        colors {
-            background #3C3B37
-            statusline #ffffff
-            separator  #888888
-        }
-        status_command i3blocks -c ~/.config/i3/i3blocks.config
-}
+# bar {
+#     position top
+#     colors {
+#         background #3C3B37
+#         statusline #ffffff
+#         separator  #888888
+#     }
+#     status_command i3blocks -c ~/.config/i3/i3blocks.config
+# }
 
 # Window colors
 
@@ -192,9 +196,9 @@ client.urgent       #AA0000 #990000 #FFFFFF
 exec --no-startup-id nm-applet
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% & pkill -RTMIN+1 i3blocks #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% & pkill -RTMIN+1 i3blocks  #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle & pkill -RTMIN+1 i3blocks  # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% & pkill -RTMIN+1 i3blocks #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% & pkill -RTMIN+1 i3blocks  #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle & pkill -RTMIN+1 i3blocks  # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id sudo /home/bibek/bin/set-brightness.py inc 20 # increase screen brightness
@@ -219,7 +223,7 @@ exec --no-startup-id feh --randomize --bg-scale ~/Pictures/wallpapers/*
 bindsym shift+$mod+w exec --no-startup-id feh --randomize --bg-scale ~/Pictures/wallpapers/*
 
 # For transparency
-exec --no-startup-id compton --vsync opengl
+exec_always --no-startup-id "killall -q compton; compton"
 
 # Redshift
 # exec --no-startup-id redshift -t 5500:1900 -b 1.0:0.8
@@ -253,3 +257,9 @@ bindsym $mod+m move workspace to output right
 
 bindsym $mod+z exec --no-startup-id xset led named "Scroll Lock"
 bindsym $mod+Shift+z exec --no-startup-id xset -led named "Scroll Lock"
+
+for_window [class="^."] border pixel 2
+gaps inner 8
+gaps outer 1
+
+# smart_gaps on
