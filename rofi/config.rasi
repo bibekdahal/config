@@ -2,6 +2,8 @@ configuration {
     show-icons: true;
     disable-history: true;
     display-drun: "";
+    display-window: "";
+    modi: "drun,window";
 }
 
 * {
@@ -22,7 +24,7 @@ configuration {
 window {
     background-color: @primary1-transparent;
     opacity: 0.8;
-    padding: 250px;
+    padding: 50px 250px;
     width: 100%;
     height: 100%;
 }
@@ -36,11 +38,12 @@ listview {
     border: 2px;
     cycle: false;
     columns: 3;
-    spacing: 10px;
+    spacing: 0;
 }
 
 element {
-    padding: 10px 4px 4px 4px;
+    orientation: horizontal;
+    padding: 32px 10px;
 }
 
 element selected {
@@ -48,8 +51,13 @@ element selected {
 }
 
 element-icon {
-    size: 24px;
-    margin: 0 8px 0 8px;
+    size: 48px;
+    margin: 0 24px 0 10px;
+}
+
+element-text {
+    font: "Ubuntu 12";
+    padding: 16px 0;
 }
 
 prompt {

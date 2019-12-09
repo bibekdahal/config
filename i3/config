@@ -17,6 +17,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+d exec dmenu_run
 bindsym $mod+d exec --no-startup-id rofi -show drun -m -1
 
+bindsym $mod+Tab exec --no-startup-id rofi -show window -m -1
+
 # bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu 'dmenu -i -fn "-8"'
 # bindsym $mod+d exec dmenu_run
 
