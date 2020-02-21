@@ -12,7 +12,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'posva/vim-vue'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'leafgarland/typescript-vim'
-Plug 'ianks/vim-tsx'
+" Plug 'ianks/vim-tsx'
 Plug 'jremmen/vim-ripgrep'
 Plug 'suan/vim-instant-markdown'
 " Plug 'tnagorra/camelspell'
@@ -20,6 +20,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'tweekmonster/django-plus.vim'
 Plug 'justinmk/vim-syntax-extra'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 
 call plug#end()
@@ -41,8 +43,8 @@ set backspace=indent,eol,start
 set mouse=a
 
 " Color theme
-colorscheme onehalfdark
-" colorscheme onehalflight
+" colorscheme onehalfdark
+colorscheme onehalflight
 " colorscheme apprentice
 " colorscheme flattened_light
 syntax on
@@ -53,10 +55,10 @@ set t_ut=
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=darkgray
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgray
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=white   ctermbg=white
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=lightgrey ctermbg=256
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=darkgray
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=255
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=255
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'ra'
@@ -94,7 +96,7 @@ set expandtab
 
 filetype plugin indent on
 
-au FileType tf setlocal expandtab tabstop=2 shiftwidth=2
+" au FileType tf setlocal expandtab tabstop=2 shiftwidth=2
 " au FileType cpp setlocal expandtab tabstop=2 shiftwidth=2
 " au BufRead,BufEnter /home/bibek/projects/helix/*.js set tabstop=2 softtabstop=2 shiftwidth=2
 " au BufRead,BufEnter /home/bibek/projects/helix/*.vue set tabstop=2 softtabstop=2 shiftwidth=2

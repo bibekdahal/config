@@ -24,16 +24,40 @@ configuration {
 window {
     background-color: @primary1-transparent;
     opacity: 0.8;
-    padding: 16px 16px;
+    padding: 50px 250px;
+    width: 100%;
+    height: 100%;
+}
+
+listview {
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 10px 0 0 0;
+    border-radius: 16px;
+    scrollbar: false;
+    border-color: @primary3;
+    border: 2px;
+    cycle: false;
+    columns: 3;
+    spacing: 0;
 }
 
 element {
     orientation: horizontal;
-    padding: 4px;
+    padding: 32px 10px;
 }
 
 element selected {
     background-color: @secondary1;
+}
+
+element-icon {
+    size: 48px;
+    margin: 0 24px 0 10px;
+}
+
+element-text {
+    font: "Ubuntu 12";
+    padding: 16px 0;
 }
 
 prompt {
@@ -41,10 +65,10 @@ prompt {
 }
 
 inputbar {
-    border: 0 0 2px 0;
+    border: 2px;
+    border-radius: 16px;
     border-color: @primary2;
-    padding: 0 0 4px 0;
-    margin: 10px 0;
+    padding: 10px;
 }
 
 entry {
