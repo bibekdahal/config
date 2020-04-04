@@ -43,8 +43,8 @@ set backspace=indent,eol,start
 set mouse=a
 
 " Color theme
-" colorscheme onehalfdark
-colorscheme onehalflight
+colorscheme onehalfdark
+" colorscheme onehalflight
 " colorscheme apprentice
 " colorscheme flattened_light
 syntax on
@@ -55,10 +55,10 @@ set t_ut=
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=darkgray
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgray
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=255
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=255
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=darkgray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgray
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=255
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=255
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'ra'
