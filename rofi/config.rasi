@@ -1,48 +1,48 @@
 configuration {
     show-icons: true;
     disable-history: true;
-    display-drun: "";
+    display-drun: "🔍";
     display-window: "";
     modi: "drun,window";
+    font: "Ubuntu 11";
+    drun-show-actions: true;
+    width: 600;
+    lines: 10;
 }
 
 * {
-    background-color: rgba(0, 0, 0, 0);
-    color: #fff;
-
-    primary1: #2c3e50;
-    primary1-transparent: rgba(44, 62, 80, 0.92);
-    secondary1: #405469;
-
-    primary2: #c0392b;
-    secondary2: #e74c3c;
-
-    primary3: #2980b9;
-    secondary3: #3498db;
+    background-color: #fff;
+    color: #000;
 }
 
 window {
-    background-color: @primary1-transparent;
     opacity: 0.8;
     padding: 16px 16px;
+    border: 1px;
+    border-color: #999;
 }
 
 element {
     orientation: horizontal;
-    padding: 4px;
+    padding: 6px 10px;
+}
+
+element-icon {
+    size: 16px;
+    padding: 0 2px 0 0;
 }
 
 element selected {
-    background-color: @secondary1;
+    background-color: #eee;
 }
 
 prompt {
-    color: @secondary3;
+    color: #aaa;
 }
 
 inputbar {
     border: 0 0 2px 0;
-    border-color: @primary2;
+    border-color: #bbb;
     padding: 0 0 4px 0;
     margin: 10px 0;
 }

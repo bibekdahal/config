@@ -2,26 +2,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'w0rp/ale'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'posva/vim-vue'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
-Plug 'leafgarland/typescript-vim'
-" Plug 'ianks/vim-tsx'
 Plug 'jremmen/vim-ripgrep'
-Plug 'suan/vim-instant-markdown'
-" Plug 'tnagorra/camelspell'
-Plug 'leafgarland/typescript-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'tweekmonster/django-plus.vim'
-Plug 'justinmk/vim-syntax-extra'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 
 
 call plug#end()
@@ -74,6 +58,7 @@ let g:ale_sign_column_always = 1
 let g:ale_linters = {
             \'javascript': ['eslint'],
             \'cpp': ['clang', 'gcc', 'clangcheck'],
+            \'python': ['flake8'],
             \}
 let g:ale_fixers = { 'scss': ['stylelint'], 'javascript': ['eslint'] }
 " let g:ale_javascript_eslint_use_global = 1
@@ -81,8 +66,6 @@ let g:ale_cpp_clang_options = '-std=c++17 -Wall -I include -I tmp'
 let g:ale_cpp_gcc_options = '-std=c++17 -Wall -I include -I tmp'
 let g:ale_cpp_clangcheck_options = '-- -std=c++17 -Wall -I include -I tmp -x c++'
 
-" vim-jsx: no .jsx extension required
-let g:jsx_ext_required = 0
 
 " Omnicomplete
 inoremap <C-@> <c-x><c-o>

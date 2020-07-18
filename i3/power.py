@@ -12,7 +12,7 @@ if len(sys.argv) > 0:
     elif arg == "restart":
         subprocess.call("reboot")
     elif arg == "lock":
-        subprocess.call("i3lock")
+        subprocess.call(["i3lock", "-i", "/home/bibek/.config/i3/wallpaper.png", "-u"])
 
     elif arg == "suspend":
         subprocess.call(["systemctl", "suspend"])
