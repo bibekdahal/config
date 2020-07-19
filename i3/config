@@ -235,7 +235,7 @@ exec --no-startup-id feh --bg-scale ~/projects/splash-me/wallpaper
 bindsym shift+$mod+w exec --no-startup-id ~/projects/splash-me/splash-me.py
 
 # For transparency
-exec_always --no-startup-id "killall -q picom; picom -b --inactive-dim 0.2"
+exec_always --no-startup-id "killall -q picom; sleep 1; picom -b --inactive-dim 0.2 --focus-exclude 'class_g = \"Rofi\"'"
 exec --no-startup-id "libinput-gestures-setup start"
 
 # Redshift

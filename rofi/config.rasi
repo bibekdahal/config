@@ -8,18 +8,19 @@ configuration {
     drun-show-actions: true;
     width: 600;
     lines: 10;
-}
-
-* {
-    background-color: #fff;
-    color: #000;
+    show-match: false;
 }
 
 window {
-    opacity: 0.8;
     padding: 16px 16px;
     border: 1px;
-    border-color: #999;
+    border-color: #eee;
+    background-color: #fffffff5;
+}
+
+* {
+    background-color: #fff0;
+    color: #000;
 }
 
 element {
@@ -33,7 +34,7 @@ element-icon {
 }
 
 element selected {
-    background-color: #eee;
+    background-color: #ddda;
 }
 
 prompt {
