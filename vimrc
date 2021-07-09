@@ -2,10 +2,11 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'tomasiser/vim-code-dark'
 Plug 'w0rp/ale'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'jremmen/vim-ripgrep'
+Plug 'Yggdroot/indentLine'
 
 
 call plug#end()
@@ -27,22 +28,14 @@ set backspace=indent,eol,start
 set mouse=a
 
 " Color theme
-colorscheme onehalfdark
+colorscheme codedark
+" colorscheme onehalfdark
 " colorscheme onehalflight
 " colorscheme apprentice
 " colorscheme flattened_light
 syntax on
 " Disable background color erase
 set t_ut=
-
-" Indent guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_guide_size = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=darkgray
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgray
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=255
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=255
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'ra'
